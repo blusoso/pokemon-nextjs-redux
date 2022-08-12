@@ -1,9 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari&display=swap");
+@import url("https://use.typekit.net/rfs5isx.css");
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "acumin-pro", sans-serif, "IBM Plex Sans Devanagari", sans-serif,
+    -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -20,7 +24,7 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: #1a2027;
+    background: rgb(241 245 249);
   }
 }
