@@ -115,14 +115,14 @@ const PokemonModal = ({ isOpen, pokemon, index, onClose }) => {
         <IconWrapper>
           <IconButton
             size="small"
-            color={selectedGender === GENDER.MALE ? "primary" : "default"}
+            color={selectedGender === GENDER.MALE ? "info" : "default"}
             onClick={() => setSelectedGender(GENDER.MALE)}
           >
             <MaleIcon />
           </IconButton>
           <IconButton
             size="small"
-            color={selectedGender === GENDER.FEMALE ? "secondary" : "default"}
+            color={selectedGender === GENDER.FEMALE ? "error" : "default"}
             onClick={() => setSelectedGender(GENDER.FEMALE)}
           >
             <FemaleIcon />

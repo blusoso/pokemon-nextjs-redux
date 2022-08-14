@@ -1,42 +1,34 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Grid } from "@mui/material";
 import {
-  fetchAllPokemon,
-  fetchPokemon,
-  getPokemonError,
-  getPokemonStatus,
-  selectAllPokemon,
-  selectPokemon,
-  STATE_STATUS,
+  fetchAllNextPokemon,
+  fetchNextPokemon,
+  selectPokemonProfiles,
 } from "../store/pokemon/pokemonSlice";
 import PokemonItem from "./PokemonItem";
 import PokemonModal from "./PokemonModal";
+import LoadingButton from "@mui/lab/LoadingButton";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const PokemonList = () => {
+const PokemonList = ({ pokemonPerRow }) => {
   const dispatch = useDispatch();
-  const allPokemonList = useSelector(selectAllPokemon);
-  const pokemonList = useSelector(selectPokemon);
-  const pokemonStatus = useSelector(getPokemonStatus);
-  const error = useSelector(getPokemonError);
+  const pokemonProfileList = useSelector(selectPokemonProfiles);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState();
-
-  useEffect(() => {
-    if (pokemonStatus === STATE_STATUS.IDLE) {
-      dispatch(fetchAllPokemon());
-      dispatch(fetchPokemon());
-    }
-  }, [pokemonStatus, dispatch]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSelectedPokemon = (pokemon) => {
     setSelectedPokemon(pokemon);
     setIsOpen(true);
   };
 
-  console.log(allPokemonList);
-
+  const loadMore = async () => {
+    setIsLoading(true);
+    await dispatch(fetchNextPokemon());
+    await dispatch(fetchAllNextPokemon());
+    setIsLoading(false);
+  };
   return (
     <>
       {selectedPokemon && (
@@ -50,9 +42,15 @@ const PokemonList = () => {
       <Box sx={{ flexGrow: 1, my: 10 }}>
         <Grid container>
           <Grid container rowSpacing={10} columnSpacing={4}>
-            {allPokemonList.length > 0 &&
-              allPokemonList.map((pokemon, index) => (
-                <Grid item xs={12} sm={6} md={4} key={pokemon.name}>
+            {pokemonProfileList.length > 0 &&
+              pokemonProfileList.map((pokemon, index) => (
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={12 / pokemonPerRow}
+                  key={pokemon.name}
+                >
                   <PokemonItem
                     pokemon={pokemon}
                     index={index}
@@ -62,6 +60,19 @@ const PokemonList = () => {
               ))}
           </Grid>
         </Grid>
+        <Box textAlign="center" mt={4}>
+          <LoadingButton
+            variant="outlined"
+            color="primary"
+            onClick={loadMore}
+            loading={isLoading}
+            endIcon={<ExpandMoreIcon />}
+            loadingPosition="end"
+            disabled={isLoading}
+          >
+            more
+          </LoadingButton>
+        </Box>
       </Box>
     </>
   );

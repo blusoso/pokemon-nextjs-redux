@@ -33,7 +33,7 @@ const ProfileBox = styled(Box)`
     type === PROFILE_BOX_TYPE.ABILITY &&
     "display: flex;justify-content: center;align-items: center;min-height: 2.5em;"};
 
-  subtitle2 {
+  p {
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 2px;
@@ -97,7 +97,7 @@ const PokemonDetail = ({ pokemon, index }) => {
     <ProfileBox bgcolor={blueGrey[50]} px={3} py={1} type={type}>
       {isHidden && <VisibilityOffIcon size="small" />}
       {title && (
-        <Typography variant="subtitle2" component="subtitle2">
+        <Typography variant="subtitle2" component="p">
           {title}
         </Typography>
       )}

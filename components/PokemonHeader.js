@@ -35,7 +35,7 @@ const TypesTagWrapper = styled(Stack)`
 
 const TypeTag = styled.div`
   background: ${({ backgroundColor }) => backgroundColor};
-  color: ${({ color }) => color};
+  color: ${({ textColor }) => textColor};
   padding: 2px 8px;
   border-radius: 6px;
   font-weight: 600;
@@ -127,7 +127,7 @@ const PokemonHeader = ({ pokemon }) => {
       <TypeTag
         key={`${type.name}-${pokemon.id}`}
         backgroundColor={tagColor}
-        color={handleTextColorTypes}
+        textColor={handleTextColorTypes}
       >
         {type.name}
       </TypeTag>
@@ -136,7 +136,7 @@ const PokemonHeader = ({ pokemon }) => {
 
   return (
     <BoxStyled mt={4}>
-      <Typography variant="subtitle2" color={blueGrey[200]}>
+      <Typography variant="subtitle2" component="p" color={blueGrey[200]}>
         <b>#{padLeadingZeros(pokemon.id, 4)}</b>
       </Typography>
       <Typography variant="h6" component="h6">
