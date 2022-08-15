@@ -18,6 +18,7 @@ const initialState = {
   nextPokemon: [],
   allNextPokemon: [],
   pokemonCount: 0,
+  filteredPokemon: undefined,
   status: STATE_STATUS.IDLE,
   error: null,
 };
@@ -118,7 +119,18 @@ export const fetchAllNextPokemon = createAsyncThunk(
 const pokemon = createSlice({
   name: "pokemon",
   initialState,
-  reducers: {},
+  reducers: {
+    searchByPokemonName(state, action) {
+      const { name } = action.payload;
+      if (name) {
+        state.filteredPokemon = state.allPokemonProfiles.filter(
+          (pokemon) => pokemon.name.toLowerCase() === name.toLowerCase()
+        );
+      } else {
+        state.filteredPokemon = undefined;
+      }
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchPokemon.pending, (state) => {
@@ -153,7 +165,6 @@ const pokemon = createSlice({
       })
       .addCase(fetchAllPokemonProfile.fulfilled, (state, action) => {
         state.status = STATE_STATUS.SUCCEEDED;
-        console.log(action.payload);
         state.allPokemonProfiles = state.allPokemonProfiles.concat(
           action.payload
         );
@@ -162,17 +173,6 @@ const pokemon = createSlice({
         state.status = STATE_STATUS.FAILED;
         state.error = action.error.message;
       })
-      // .addCase(fetchPokemonName.pending, (state) => {
-      //   state.status = STATE_STATUS.LOADING;
-      // })
-      // .addCase(fetchPokemonName.fulfilled, (state, action) => {
-      //   state.status = STATE_STATUS.SUCCEEDED;
-      //   state.pokemonNameList = action.payload;
-      // })
-      // .addCase(fetchPokemonName.rejected, (state, action) => {
-      //   state.status = STATE_STATUS.FAILED;
-      //   state.error = action.error.message;
-      // })
       .addCase(fetchPokemonProfile.pending, (state) => {
         state.status = STATE_STATUS.LOADING;
       })
@@ -202,6 +202,8 @@ const pokemon = createSlice({
   },
 });
 
+export const { searchByPokemonName } = pokemon.actions;
+
 export const selectPokemonProfiles = (state) => state.pokemon.pokemonProfiles;
 export const selectPokemon = (state) => state.pokemon.pokemon;
 export const selectAllPokemon = (state) => state.pokemon.allPokemon;
@@ -211,6 +213,7 @@ export const selectPokemonNameList = (state) => state.pokemon.pokemonNameList;
 export const selectNextPokemon = (state) => state.pokemon.nextPokemon;
 export const selectAllNextPokemon = (state) => state.pokemon.allNextPokemon;
 export const selectPokemonCount = (state) => state.pokemon.pokemonCount;
+export const selectFilteredPokemon = (state) => state.pokemon.filteredPokemon;
 export const getPokemonStatus = (state) => state.pokemon.status;
 export const getPokemonError = (state) => state.pokemon.error;
 

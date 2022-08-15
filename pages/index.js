@@ -50,8 +50,6 @@ export default function Home() {
     fetchData();
   }, [pokemonStatus, dispatch]);
 
-  console.log(error, allPokemonProfiles);
-
   useEffect(() => {
     if (error) {
       setIsSnackBarOpen(true);
@@ -106,7 +104,10 @@ export default function Home() {
               <TextField fullWidth label="fullWidth" id="fullWidth" />
             </Grid>
           </Grid>
-          <PokemonList pokemonPerRow={POKEMON_PER_ROW} />
+          <PokemonList
+            pokemonPerRow={POKEMON_PER_ROW}
+            limitPerPage={LIMIT_PER_PAGE}
+          />
         </Box>
       </main>
     </div>
