@@ -44,7 +44,7 @@ const PokemonList = ({ pokemonPerRow, limitPerPage }) => {
         />
       )}
 
-      <Box sx={{ flexGrow: 1, my: 10 }}>
+      <Box sx={{ flexGrow: 1, my: 6 }}>
         <Grid container>
           <Grid container rowSpacing={10} columnSpacing={4}>
             {renderedPokemonList.length > 0 &&

@@ -23,6 +23,13 @@ export const theme = createTheme({
             },
           },
         },
+        {
+          props: { variant: "textLink" },
+          style: {
+            backgroundColor: "transparent",
+            color: red[500],
+          },
+        },
       ],
     },
     MuiAppBar: {

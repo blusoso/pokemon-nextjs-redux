@@ -93,17 +93,10 @@ export default function Home() {
         </Snackbar>
 
         <Box px={20} mt={4}>
-          <Grid container spacing={3}>
-            <Grid item xs={9}>
-              <SearchPokemon
-                pokemonNameList={pokemonNameList}
-                allPokemonProfiles={allPokemonProfiles}
-              />
-            </Grid>
-            <Grid item xs={3}>
-              <TextField fullWidth label="fullWidth" id="fullWidth" />
-            </Grid>
-          </Grid>
+          <SearchPokemon
+            pokemonNameList={pokemonNameList}
+            allPokemonProfiles={allPokemonProfiles}
+          />
           <PokemonList
             pokemonPerRow={POKEMON_PER_ROW}
             limitPerPage={LIMIT_PER_PAGE}
