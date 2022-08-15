@@ -23,13 +23,13 @@ const Nav = () => {
   const theme = useTheme();
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
+    <AppBar position="static" sx={{ maxWidth: "100%" }}>
+      <Container>
         <Toolbar disableGutters>
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: "none", md: "flex" },
+              display: { xs: "flex" },
               justifyContent: "center",
             }}
           >
@@ -42,7 +42,7 @@ const Nav = () => {
                 sx={{
                   display: "flex",
                   textTransform: "capitalize",
-                  padding: "1em 1.5em",
+                  padding: "1em",
                   margin: "0.2em",
                   alignItems: "center",
                 }}

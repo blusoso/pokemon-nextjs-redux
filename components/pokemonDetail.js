@@ -1,7 +1,7 @@
 import { Grid, Box, Typography } from "@mui/material";
 import React from "react";
 import PokemonHeader from "./PokemonHeader";
-import { blueGrey, amber, brown } from "@mui/material/colors";
+import { blueGrey, amber } from "@mui/material/colors";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import styled from "styled-components";
 import {
@@ -86,6 +86,14 @@ const StatHeader = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
+  font-size: 1em;
+
+  @media only screen and (max-width: 430px) {
+    font-size: 0.9em;
+  }
+  @media only screen and (max-width: 350px) {
+    font-size: 0.75em;
+  }
 `;
 
 const StatValue = styled(Typography)`

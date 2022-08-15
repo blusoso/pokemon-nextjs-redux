@@ -13,12 +13,10 @@ const SearchPokemon = ({ pokemonNameList }) => {
     dispatch(searchByPokemonName({ name: undefined }));
   };
 
-  console.log(searchValue);
-
   return (
     <>
       <Grid container spacing={1}>
-        <Grid item xs={11}>
+        <Grid item xs={10} sm={11}>
           <Autocomplete
             value={searchValue}
             onChange={(_, newValue) => setSearchValue(newValue)}
@@ -34,7 +32,7 @@ const SearchPokemon = ({ pokemonNameList }) => {
             )}
           />
         </Grid>
-        <Grid item xs={1}>
+        <Grid item xs={2} sm={1}>
           <Button
             variant="primary"
             sx={{
@@ -49,7 +47,7 @@ const SearchPokemon = ({ pokemonNameList }) => {
         </Grid>
       </Grid>
       <Grid container sx={{ textAlign: "right", marginTop: "0.3em" }}>
-        <Grid item xs={11}>
+        <Grid item xs={10} md={11}>
           <Button variant="textLink" onClick={clearSearchValue}>
             Clear
           </Button>

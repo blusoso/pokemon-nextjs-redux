@@ -18,6 +18,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import SearchPokemon from "../components/SearchPokemon";
+import { Container } from "@mui/system";
 
 const SearchBox = styled(Box)`
   .MuiAutocomplete-popper {
@@ -74,9 +75,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <nav>
-        <Nav />
-      </nav>
+      <Nav />
       <main>
         <Snackbar
           open={isSnackBarOpen}
@@ -92,7 +91,7 @@ export default function Home() {
           </Alert>
         </Snackbar>
 
-        <Box px={20} mt={4}>
+        <Container sx={{ marginTop: "2.5em" }}>
           <SearchPokemon
             pokemonNameList={pokemonNameList}
             allPokemonProfiles={allPokemonProfiles}
@@ -101,7 +100,7 @@ export default function Home() {
             pokemonPerRow={POKEMON_PER_ROW}
             limitPerPage={LIMIT_PER_PAGE}
           />
-        </Box>
+        </Container>
       </main>
     </div>
   );

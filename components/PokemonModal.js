@@ -1,10 +1,8 @@
-import { Box, Button, Modal, Typography, IconButton } from "@mui/material";
+import { Box, Modal, IconButton } from "@mui/material";
 import React, { useState } from "react";
 import styled from "styled-components";
 import FemaleIcon from "@mui/icons-material/Female";
 import MaleIcon from "@mui/icons-material/Male";
-import { Stack } from "@mui/system";
-import PokemonHeader from "./PokemonHeader";
 import CloseIcon from "@mui/icons-material/Close";
 import PokemonDetail from "./pokemonDetail";
 
@@ -24,6 +22,11 @@ const ModalContainer = styled(Box)`
   padding: 2em;
   border-radius: ${BORDER_RADIUS};
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  @media only screen and (max-width: 430px) {
+    padding: 1em;
+    width: 90%;
+  }
 `;
 
 const ImageWrapper = styled.div`

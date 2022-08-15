@@ -21,11 +21,6 @@ const ImageWrapper = styled.div`
   top: -2%;
   left: 50%;
   transform: translate(-50%, -50%);
-  // background: linear-gradient(
-  //   242deg,
-  //   rgba(241, 44, 59, 1) 19%,
-  //   rgba(255, 117, 28, 1) 100%
-  // );
   border-radius: 100%;
   padding: 0.25rem;
   width: 125px;
@@ -45,7 +40,6 @@ const ImageBorder = styled.div`
     border-radius: 100%;
     padding: 3px;
     margin: 0;
-    // box-shadow: 10px 10px 15px rgb(0 0 0 / 5%);
     width: 100%;
     height: 100%;
   }
