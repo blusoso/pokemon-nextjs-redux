@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Skeleton } from "@mui/material";
 import {
   fetchAllNextPokemon,
   fetchNextPokemon,
+  getPokemonStatus,
   selectFilteredPokemon,
   selectPokemonProfiles,
+  STATE_STATUS,
 } from "../store/pokemon/pokemonSlice";
 import PokemonItem from "./PokemonItem";
 import PokemonModal from "./PokemonModal";
 import LoadingButton from "@mui/lab/LoadingButton";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import SkeletonPokemonItem from "./SkeletonPokemonItem";
 
 const PokemonList = ({ pokemonPerRow, limitPerPage }) => {
   const dispatch = useDispatch();
   const pokemonProfileList = useSelector(selectPokemonProfiles);
   const filteredPokemon = useSelector(selectFilteredPokemon);
+  const pokemonStatus = useSelector(getPokemonStatus);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -56,11 +60,15 @@ const PokemonList = ({ pokemonPerRow, limitPerPage }) => {
                   md={12 / pokemonPerRow}
                   key={pokemon.name}
                 >
-                  <PokemonItem
-                    pokemon={pokemon}
-                    index={index}
-                    selectedPokemon={handleSelectedPokemon}
-                  />
+                  {pokemonStatus === STATE_STATUS.LOADING ? (
+                    <SkeletonPokemonItem />
+                  ) : (
+                    <PokemonItem
+                      pokemon={pokemon}
+                      index={index}
+                      selectedPokemon={handleSelectedPokemon}
+                    />
+                  )}
                 </Grid>
               ))}
           </Grid>

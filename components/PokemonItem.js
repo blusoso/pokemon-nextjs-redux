@@ -1,5 +1,5 @@
-import { Box, Grid, Card, CardContent, Typography, Stack } from "@mui/material";
-import React, { useState } from "react";
+import { Card, CardContent, Typography } from "@mui/material";
+import React from "react";
 import styled from "styled-components";
 import PokemonHeader from "./PokemonHeader";
 
@@ -28,7 +28,6 @@ const ImageWrapper = styled.div`
 `;
 
 const ImageBorder = styled.div`
-  // background: white;
   border-radius: 100%;
   padding: 0.2rem;
   width: 100%;

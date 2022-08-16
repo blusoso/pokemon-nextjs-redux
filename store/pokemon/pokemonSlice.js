@@ -62,23 +62,6 @@ export const fetchAllPokemonProfile = createAsyncThunk(
   }
 );
 
-// export const fetchPokemonName = createAsyncThunk(
-//   "pokemon/fetchPokemonName",
-//   async (_, { getState }) => {
-//     const count = selectPokemonCount(getState());
-
-//     const { data } = await axios.get(
-//       `${BASE_POKEMON_URL}/pokemon/?limit=${count}`
-//     );
-
-//     const nameList = data.results.map((result) =>
-//       stringCapitalize(result.name)
-//     );
-
-//     return nameList;
-//   }
-// );
-
 export const fetchPokemonProfile = createAsyncThunk(
   "pokemon/fetchPokemonProfile",
   async (_, { getState }) => {
