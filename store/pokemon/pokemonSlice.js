@@ -128,9 +128,6 @@ const pokemon = createSlice({
         state.status = STATE_STATUS.FAILED;
         state.error = action.error.message;
       })
-      .addCase(fetchAllPokemon.pending, (state) => {
-        state.status = STATE_STATUS.LOADING;
-      })
       .addCase(fetchAllPokemon.fulfilled, (state, action) => {
         state.status = STATE_STATUS.SUCCEEDED;
         state.allPokemon = action.payload;
@@ -142,9 +139,6 @@ const pokemon = createSlice({
       .addCase(fetchAllPokemon.rejected, (state, action) => {
         state.status = STATE_STATUS.FAILED;
         state.error = action.error.message;
-      })
-      .addCase(fetchAllPokemonProfile.pending, (state) => {
-        state.status = STATE_STATUS.LOADING;
       })
       .addCase(fetchAllPokemonProfile.fulfilled, (state, action) => {
         state.status = STATE_STATUS.SUCCEEDED;
