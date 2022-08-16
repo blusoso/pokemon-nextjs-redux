@@ -1,8 +1,7 @@
 import Head from "next/head";
-import PokemonList from "../components/PokemonList";
-import { Alert, Box, Grid, Snackbar, TextField } from "@mui/material";
-import Nav from "../components/Nav";
-import styled from "styled-components";
+import PokemonList from "../components/PokemonList/PokemonList";
+import { Alert, Snackbar } from "@mui/material";
+import Nav from "../components/Nav/Nav";
 import {
   fetchAllPokemon,
   fetchAllPokemonProfile,
@@ -10,21 +9,14 @@ import {
   fetchPokemonProfile,
   getPokemonError,
   getPokemonStatus,
-  selectAllPokemon,
   selectAllPokemonProfiles,
   selectPokemonNameList,
   STATE_STATUS,
 } from "../store/pokemon/pokemonSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import SearchPokemon from "../components/SearchPokemon";
+import SearchPokemon from "../components/Search/SearchPokemon/SearchPokemon";
 import { Container } from "@mui/system";
-
-const SearchBox = styled(Box)`
-  .MuiAutocomplete-popper {
-    color: red;
-  }
-`;
 
 const POKEMON_PER_ROW = 4;
 const LIMIT_PER_PAGE = POKEMON_PER_ROW * 5;
@@ -33,7 +25,6 @@ export default function Home() {
   const dispatch = useDispatch();
   const pokemonStatus = useSelector(getPokemonStatus);
   const pokemonNameList = useSelector(selectPokemonNameList);
-  const allPokemonList = useSelector(selectAllPokemon);
   const allPokemonProfiles = useSelector(selectAllPokemonProfiles);
   const [isSnackBarOpen, setIsSnackBarOpen] = useState(false);
   const error = useSelector(getPokemonError);

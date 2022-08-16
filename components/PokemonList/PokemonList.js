@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, Grid, Skeleton } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import {
   fetchAllNextPokemon,
   fetchNextPokemon,
@@ -8,12 +8,12 @@ import {
   selectFilteredPokemon,
   selectPokemonProfiles,
   STATE_STATUS,
-} from "../store/pokemon/pokemonSlice";
-import PokemonItem from "./PokemonItem";
-import PokemonModal from "./PokemonModal";
+} from "../../store/pokemon/pokemonSlice";
+import PokemonItem from "../PokemonItem/PokemonItem";
+import PokemonModal from "../Modal/PokemonModal";
 import LoadingButton from "@mui/lab/LoadingButton";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import SkeletonPokemonItem from "./SkeletonPokemonItem";
+import SkeletonPokemonItem from "../Skeleton/SkeletonPokemonItem/SkeletonPokemonItem";
 
 const PokemonList = ({ pokemonPerRow, limitPerPage }) => {
   const dispatch = useDispatch();

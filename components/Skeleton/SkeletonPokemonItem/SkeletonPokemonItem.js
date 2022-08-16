@@ -1,13 +1,6 @@
 import { Box, Skeleton } from "@mui/material";
 import React from "react";
-import styled from "styled-components";
-
-const SkeletonImageStyled = styled(Skeleton)`
-  position: absolute;
-  top: -2%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
+import { SkeletonImageStyled } from "./SkeletonPokemonItem.styled";
 
 const SkeletonPokemonItem = () => {
   return (

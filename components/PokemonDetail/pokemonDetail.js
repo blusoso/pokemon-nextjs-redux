@@ -1,14 +1,21 @@
 import { Grid, Box, Typography } from "@mui/material";
 import React from "react";
-import PokemonHeader from "./PokemonHeader";
+import PokemonHeader from "../PokemonHeader/PokemonHeader";
 import { blueGrey, amber } from "@mui/material/colors";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import styled from "styled-components";
 import {
   decimeterToMeters,
   hectogramToKg,
   numberWithCommas,
-} from "../utils/number";
+} from "../../utils/number";
+import {
+  HeaderText,
+  HrStyled,
+  ProfileBox,
+  StatHeader,
+  StatValue,
+  StatWrapper,
+} from "./pokemonDetail.styled";
 
 const PROFILE_BOX_TYPE = {
   ABILITY: "ability",
@@ -22,83 +29,6 @@ const STAT_NAME = {
   SPECIAL_DEFENSE: "special-defense",
   SPEED: "speed",
 };
-
-const BORDER_RADIUS = "12px";
-const BORDER_COLOR = "rgba(0, 0, 0, 0.1)";
-
-const ProfileBox = styled(Box)`
-  border-radius: ${BORDER_RADIUS};
-  text-align: center;
-  ${({ type }) =>
-    type === PROFILE_BOX_TYPE.ABILITY &&
-    "display: flex;justify-content: center;align-items: center;min-height: 2.5em;"};
-
-  p {
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 2px;
-    font-size: ${({ type }) =>
-      type === PROFILE_BOX_TYPE.ABILITY ? "0.6em" : "0.9em"};
-  }
-
-  svg {
-    font-size: 0.9em;
-    margin-right: 0.4em;
-  }
-`;
-
-const HeaderText = styled(Typography)`
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.9em;
-
-  span {
-    font-size: 0.9em;
-    font-weight: 600;
-    border-radius: 8px;
-    margin-left: 0.5em;
-  }
-`;
-
-const HrStyled = styled.hr`
-  margin: 1.5em 0;
-  border-color: ${BORDER_COLOR};
-`;
-
-const StatWrapper = styled.div`
-  position: relative;
-  border-radius: ${BORDER_RADIUS};
-  text-align: center;
-  border: 1px solid ${BORDER_COLOR};
-  padding: 0.4em 0.3em;
-`;
-
-const StatHeader = styled.div`
-  width: 60%;
-  font-weight: 600;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  font-size: 1em;
-
-  @media only screen and (max-width: 430px) {
-    font-size: 0.9em;
-  }
-  @media only screen and (max-width: 350px) {
-    font-size: 0.75em;
-  }
-`;
-
-const StatValue = styled(Typography)`
-  margin: 0.4em 0 0.3em 0;
-`;
 
 const PokemonDetail = ({ pokemon, index }) => {
   const profileBox = ({ title, value, type = "", isHidden = false }) => (

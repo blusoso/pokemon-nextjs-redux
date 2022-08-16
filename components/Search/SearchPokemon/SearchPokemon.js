@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Autocomplete, Button, Grid, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { searchByPokemonName } from "../store/pokemon/pokemonSlice";
+import { searchByPokemonName } from "../../../store/pokemon/pokemonSlice";
 import { useDispatch } from "react-redux";
 
 const SearchPokemon = ({ pokemonNameList }) => {

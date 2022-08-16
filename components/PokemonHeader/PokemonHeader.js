@@ -1,8 +1,8 @@
-import { Box, Grid, Card, CardContent, Typography, Stack } from "@mui/material";
-import React, { useState } from "react";
-import styled from "styled-components";
+import { Typography } from "@mui/material";
+import React from "react";
 import { blueGrey } from "@mui/material/colors";
-import { padLeadingZeros } from "../utils/number";
+import { padLeadingZeros } from "../../utils/number";
+import { BoxStyled, TypesTagWrapper, TypeTag } from "./PokemonHeader.styled";
 
 export const POKEMON_TYPES = {
   NORMAL: "NORMAL",
@@ -24,27 +24,6 @@ export const POKEMON_TYPES = {
   STEEL: "STEEL",
   FAIRY: "FAIRY",
 };
-
-const TypesTagWrapper = styled(Stack)`
-  // margin-top: 0.4em;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  font-size: 0.8em;
-`;
-
-const TypeTag = styled.div`
-  background: ${({ backgroundColor }) => backgroundColor};
-  color: ${({ textColor }) => textColor};
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-weight: 600;
-`;
-
-const BoxStyled = styled(Box)`
-  text-align: center;
-  text-transform: capitalize;
-`;
 
 const PokemonHeader = ({ pokemon }) => {
   let tagColor;
