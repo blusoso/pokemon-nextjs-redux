@@ -60,15 +60,15 @@ const PokemonList = ({ pokemonPerRow, limitPerPage }) => {
                   md={12 / pokemonPerRow}
                   key={pokemon.name}
                 >
-                  {pokemonStatus === STATE_STATUS.LOADING ? (
+                  {/* {pokemonStatus === STATE_STATUS.LOADING ? (
                     <SkeletonPokemonItem />
-                  ) : (
-                    <PokemonItem
-                      pokemon={pokemon}
-                      index={index}
-                      selectedPokemon={handleSelectedPokemon}
-                    />
-                  )}
+                  ) : ( */}
+                  <PokemonItem
+                    pokemon={pokemon}
+                    index={index}
+                    selectedPokemon={handleSelectedPokemon}
+                  />
+                  {/* )} */}
                 </Grid>
               ))}
           </Grid>
