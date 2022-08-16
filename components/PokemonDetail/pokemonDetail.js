@@ -17,7 +17,7 @@ import {
   StatWrapper,
 } from "./pokemonDetail.styled";
 
-const PROFILE_BOX_TYPE = {
+export const PROFILE_BOX_TYPE = {
   ABILITY: "ability",
 };
 

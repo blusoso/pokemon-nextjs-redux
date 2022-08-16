@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import styled from "styled-components";
+import { PROFILE_BOX_TYPE } from "./pokemonDetail";
 
 export const BORDER_RADIUS = "12px";
 export const BORDER_COLOR = "rgba(0, 0, 0, 0.1)";
